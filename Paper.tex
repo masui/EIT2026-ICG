@@ -1,0 +1,424 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+\singlespacing
+
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black}
+
+% Manual citation commands
+\newcommand{\citep}[1]{\textup{(\citeauthor{#1})}}
+
+% Define references manually
+\usepackage{etoolbox}
+
+\begin{document}
+
+% Title -- double-blind version
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+{\LARGE\bfseries Irreversibility-Constrained Governance}\\[0.8em]
+{\large Preserving Human Responsibility under Finite Oversight Capacity}\\[3cm]
+{\normalsize \today}
+\end{center}
+\end{titlepage}
+
+% Abstract
+\begin{abstract}
+AI-mediated governance environments are characterized by continuous updating and adaptive
+optimization. While such systems enhance predictive performance, they introduce a structural
+risk: the progressive erosion of human oversight capacity prior to irreversible outcomes.
+
+Whereas frameworks addressing temporal fixation of responsibility specify when institutional
+commitment crystallizes, Irreversibility-Constrained Governance (ICG) specifies how institutions
+regulate the trajectory toward that fixation under conditions of finite human capacity.
+
+ICG models institutional irreversibility as a function of remaining oversight capacity and
+constrains the rate at which systems approach configurations in which evaluative and corrective
+judgment collapses. When predefined thresholds are exceeded, a structured freeze mechanism
+enforces recovery conditions that restore oversight viability.
+
+The framework is instantiated in a high-risk clinical decision support system for sepsis
+management, illustrating how update regulation and recovery operations preserve the evaluative
+space necessary for responsible clinical judgment.
+
+The model does not optimize growth. It constrains approach velocity toward institutional
+irreversibility. Its objective is to preserve the structural conditions under which human
+responsibility remains operational rather than merely formal.
+
+\noindent\textbf{Keywords:} AI governance; institutional irreversibility; oversight capacity;
+medical AI; velocity constraint; freeze mechanism; collapse-delay model; human responsibility
+\end{abstract}
+
+\newpage
+
+\section{Introduction}
+
+Artificial intelligence systems deployed in institutional environments increasingly operate
+under conditions of continuous retraining, parameter recalibration, and adaptive optimization.
+These developments enhance predictive accuracy and responsiveness. They also accelerate system
+evolution.
+
+Existing responsibility frameworks emphasize that meaningful human control must be ensured
+and that system outputs remain responsive to relevant human reasons
+(Santoni de Sio \& van den Hoven, 2018).
+Such accounts clarify alignment and attribution conditions. However, they do not model how
+oversight capacity itself evolves over time in adaptive environments.
+
+A companion framework addressing the temporal fixation of institutional responsibility under
+AI-mediated conditions has been developed in parallel work. The present analysis operates
+at a prior analytical layer.
+
+Irreversibility-Constrained Governance (ICG) addresses the dynamic conditions under which
+institutional oversight capacity may deplete before irreversible outcomes occur.
+
+The central claim is structural: governance must regulate trajectories, not merely outcomes.
+A system that approaches irreversibility faster than oversight capacity can be restored risks
+rendering responsibility formally assigned yet substantively hollow.
+
+ICG does not oppose optimization. It constrains the velocity of approach toward institutional
+irreversibility in order to preserve the institutional ability to stop.
+
+\section{Two Orders of Irreversibility}
+
+\subsection{Biological Irreversibility}
+
+Biological irreversibility refers to outcomes that cannot be undone at the level of
+physiological reality, including death, permanent organ damage, and irreversible neurological
+impairment. These represent absolute thresholds beyond which corrective intervention
+loses restorative meaning.
+
+\subsection{Institutional Irreversibility}
+
+Institutional irreversibility refers to configurations in which evaluative and supervisory
+capacity degrade to such an extent that corrective intervention becomes structurally
+ineffective. Indicators include:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item Persistent update opacity
+  \item Review overload exceeding institutional tolerance
+  \item Responsibility diffusion across actors and time
+  \item Acceleration of system evolution beyond interpretive capacity
+  \item Structural inability to suspend or recalibrate system behavior
+\end{itemize}
+
+Institutional irreversibility is not harm itself. It is the erosion of the structural
+conditions required to prevent harm.
+
+\subsection{Structural Relation}
+
+Institutional irreversibility increases the probability of biological irreversibility by
+reducing the evaluative space necessary for timely intervention. ICG therefore targets
+the approach to institutional irreversibility. By preserving oversight capacity, institutions
+preserve the structural possibility of preventing irreversible harm.
+
+\section{Formal Model of Institutional Irreversibility}
+
+\subsection{Oversight Capacity}
+
+Let institutional oversight capacity be defined as:
+\[
+B(t) \in [0,1]
+\]
+where $B(t) = 1$ denotes full evaluative and corrective capacity and $B(t) = 0$ denotes
+structural collapse of effective oversight. Oversight capacity aggregates attention,
+interpretive bandwidth, audit resources, and intervention authority.
+
+\subsection{Institutional Irreversibility Distance}
+\[
+D_{II}(t) := 1 - B(t)
+\]
+This metric captures proximity to institutional configurations in which corrective
+intervention becomes structurally ineffective.
+
+\subsection{Capacity Dynamics}
+\[
+\frac{dB}{dt} = r(t) - c(t)
+\]
+where $c(t) \geq 0$ is the consumption rate generated by alerts, updates, and review burden;
+and $r(t) \geq 0$ is the recovery rate generated by structured institutional interventions.
+
+The dynamics of $B(t)$ are not symmetric. Consumption $c(t)$ may increase rapidly in
+response to system updates, alert spikes, or exception cascades, whereas recovery $r(t)$
+is constrained by institutional factors such as staff availability, audit backlog, and
+procedural latency.
+
+This asymmetry introduces the possibility of institutional hysteresis. When oversight
+capacity depletes abruptly, restoration to prior numerical levels of $B(t)$ does not
+necessarily restore the evaluative context within which prior judgments were formed.
+Recovery may require time exceeding the governance window within which intervention
+remains practically meaningful.
+
+Moreover, cumulative drift can compound this effect. Repeated cycles of depletion and
+partial recovery may leave the institution structurally closer to irreversibility than
+instantaneous values of $B(t)$ alone would indicate.
+
+For this reason, ICG treats the velocity constraint as primary. Preventing rapid depletion
+is institutionally more robust than relying on recovery after substantial capacity loss.
+Accordingly, $v_{\max}$ must be set conservatively, and freeze activation precedes collapse
+rather than reacting to it.
+
+\subsection{Velocity Constraint}
+\[
+\frac{dD_{II}}{dt} \leq v_{\max}
+\]
+Equivalently:
+\[
+c(t) - r(t) \leq v_{\max}
+\]
+Institutions must not approach irreversibility faster than they can supervise.
+This is a governance constraint, not a claim of mechanical stability.
+
+\subsection*{3.4a\quad Governance Interpretation of the Velocity Constraint}
+
+The velocity constraint formalizes an institutional requirement: the rate at which oversight
+capacity depletes must not exceed the rate at which institutions can meaningfully respond.
+
+$v_{\max}$ is not derived from engineering specifications. It is a governance parameter set
+institutionally based on staff capacity, review infrastructure, and decision complexity.
+In medical environments, where biological irreversibility represents an absolute downstream
+threshold, $v_{\max}$ must be set conservatively.
+
+The governing variable is not accuracy or efficiency. It is the remaining margin within
+which responsible judgment remains structurally possible.
+
+\subsection{Structured Freeze}
+
+If either $D_{II}(t) \geq \theta$ or $\frac{dD_{II}}{dt} \geq \kappa$, structured freeze
+activates. Freeze operations:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item Suspend model updates
+  \item Limit alert frequency
+  \item Redistribute review responsibility
+  \item Enforce human-only fallback
+  \item Restore audit visibility
+\end{itemize}
+
+Freeze enforces $r(t) \geq r_{\min}$, restoring the velocity constraint.
+Freeze is not prohibition. It is recovery enforcement.
+
+\section{Clinical Instantiation: ICU Sepsis Decision Support}
+
+Deployment of machine learning systems in ICU environments has been shown to impose
+significant interpretive and supervisory burden on clinical staff (Sendak et al., 2020).
+
+Regulatory guidance for adaptive medical AI, including the FDA's SaMD Action Plan
+(FDA, 2021a), outlines structured change-control processes. Good Machine Learning
+Practice (FDA, 2021b) articulates implementation principles for validation and oversight.
+However, these frameworks do not model oversight capacity as a dynamically depleting variable.
+
+\subsection{Operationalizing Capacity}
+\[
+B(t) = 1 - \frac{L(t)}{L_{\max}}
+\]
+where $L(t)$ denotes review load in minutes per hour and $L_{\max}$ denotes institutional
+maximum review tolerance. Institutional irreversibility distance becomes:
+\[
+D_{II}(t) = \frac{L(t)}{L_{\max}}
+\]
+
+\subsection{Consumption Components}
+\[
+c(t) = \alpha A(t) + \beta U(t) + \gamma E(t)
+\]
+with alert frequency $A(t)$, update frequency $U(t)$, and exception reviews $E(t)$.
+
+\subsection{Threshold and Freeze}
+
+Let $\theta = 0.6$. If review burden exceeds 60\% of institutional tolerance: model
+updates suspend, alert triage activates, human-only fallback is enforced, and audit
+locking is initiated. ICG regulates the structural conditions of judgment, not clinical
+outcomes directly.
+
+\subsection{Clinical Scenario: Capacity Depletion and Recovery}
+
+Consider a twelve-hour ICU shift in which a sepsis decision support system undergoes
+two unscheduled model updates following new patient cohort data. Each update alters
+risk threshold distributions, requiring clinical staff to re-evaluate prior recommendations.
+
+At $t = 0$, $B(t) = 0.85$. Review load is within tolerance.
+
+Between $t = 1$ and $t = 3$, alert frequency $A(t)$ increases as the updated model flags
+a broader patient population. Consumption rate $c(t)$ rises. Recovery rate $r(t)$ remains
+constant. $D_{II}(t)$ begins increasing.
+
+At $t = 4$, a second update modifies exception criteria. Exception review load $E(t)$
+spikes. The attending physician's available review time falls below sustainable threshold.
+
+At $t = 5$, $D_{II}(t)$ reaches $0.58$, approaching $\theta = 0.60$. Velocity
+$\frac{dD_{II}}{dt}$ exceeds $\kappa$. Freeze activates.
+
+Freeze operations suspend further model updates, reduce alert generation to critical-only,
+and initiate responsibility handoff to a second reviewer. Recovery rate $r(t)$ increases.
+Consumption rate $c(t)$ falls.
+
+By $t = 7$, $B(t)$ has recovered to $0.72$. $D_{II}(t) = 0.28$. The velocity constraint
+is restored.
+
+No biological irreversibility occurred. The freeze prevented institutional irreversibility
+from collapsing evaluative space before the clinical team could reassert meaningful oversight.
+
+This scenario illustrates that ICG does not regulate clinical outcomes directly. It preserves
+the structural conditions under which clinical judgment remains executable.
+
+\section{Relation to Existing Frameworks}
+
+\subsection{Responsibility Frameworks}
+
+Meaningful Human Control specifies structural conditions under which system outputs remain
+responsive to relevant human reasons and attributable through intelligible causal chains
+(Santoni de Sio \& van den Hoven, 2018).
+
+Reachability-based approaches conceptualize responsibility in terms of avoiding undesirable
+global system configurations (Basir, 2026).
+
+A companion framework addressing the temporal fixation of institutional responsibility
+under AI-mediated conditions has been developed in parallel work.
+
+ICG operates at a distinct analytical layer. Rather than specifying alignment conditions
+or endpoint avoidance, it models the institutional dynamics under which evaluative capacity
+may degrade prior to irreversible outcomes.
+
+Where MHC asks whether system outputs remain attributable to human reasons, ICG asks
+whether the institutional capacity to evaluate attribution remains intact. These are
+complementary questions operating at different temporal layers. MHC addresses the moment
+of decision. ICG addresses the structural conditions that must hold before and during
+decision-making for MHC conditions to remain satisfiable.
+
+Where reachability frameworks ask whether forbidden configurations remain unreachable,
+ICG asks whether the velocity of approach toward such configurations is regulated. An
+institution may not have crossed an irreversibility threshold while nonetheless drifting
+toward it at a rate that exceeds its corrective capacity.
+
+\subsection{Constraint Logic and Control-Theoretic Analogy}
+
+Control barrier functions preserve admissible state regions by constraining system
+trajectories (Ames et al., 2017).
+
+ICG does not extend these frameworks nor operate in physical state spaces. Its object of
+analysis is institutional oversight capacity. The analogy is structural: trajectory
+constraint replaces outcome maximization.
+
+ICG translates this constraint logic into governance environments where the preserved
+object is not mechanical stability but the operational viability of human responsibility.
+
+\subsection{Regulatory and Clinical Governance Context}
+
+The FDA's AI/ML-Based SaMD Action Plan outlines governance mechanisms for adaptive updates,
+including predetermined change control plans and post-market monitoring (FDA, 2021a).
+
+Good Machine Learning Practice articulates implementation principles for data management,
+validation, and human oversight in medical AI development (FDA, 2021b).
+
+Empirical studies of ICU deployment demonstrate that interpretive and supervisory burdens
+materially shape clinical decision environments (Sendak et al., 2020).
+
+These frameworks consistently state that human oversight must be ensured. ICG reformulates
+this obligation in dynamic terms: oversight capacity is a state variable subject to
+consumption and recovery, and its preservation requires explicit constraints on system
+evolution.
+
+\section{Discussion}
+
+Continuous optimization reduces friction. Reduced friction accelerates institutional drift.
+When drift exceeds oversight capacity, responsibility remains formally assigned but
+substantively hollow.
+
+ICG reintroduces structured friction to preserve evaluative space.
+
+The model is not growth-optimizing but collapse-delaying in the precise sense that it
+constrains the velocity of approach toward institutional irreversibility. Its objective
+is to preserve the structural conditions under which human responsibility remains real
+rather than merely formal.
+
+Existing audit requirements address compliance events after they occur. ICG models oversight
+capacity as a dynamic resource whose depletion can precede audit failure. The object of
+governance is therefore not the event but the conditions that make events recoverable.
+
+Oversight capacity ultimately reflects an institution's ability to re-evaluate and, if
+necessary, replace its own operative assumptions. ICG protects this capacity without
+formalizing it as a metaphysical property.
+
+\section{Conclusion: Institutionalized Stopping as Governance Principle}
+
+Irreversibility-Constrained Governance preserves responsibility not by retrospective
+attribution but by ex ante trajectory constraint.
+
+\textit{A system that cannot stop cannot remain responsible.}
+
+By constraining the velocity of approach toward institutional irreversibility, governance
+prevents responsibility evaporation under continuous revision. Freeze mechanisms are
+structured recovery operations that preserve evaluative capacity.
+
+In medical environments, this distinction becomes existential. Biological irreversibility
+cannot be undone. Institutional irreversibility must therefore be detected and slowed
+before oversight capacity collapses.
+
+This is not a growth-optimization model. It is a collapse-delay model in the precise
+sense that it constrains the trajectory toward institutional irreversibility.
+
+Its objective is civilizational: to preserve the structural conditions under which
+human beings can still say --- and mean --- ``here we stop.''
+
+\section*{Declarations}
+
+\noindent\textbf{Funding}\quad This research received no external funding.
+
+\noindent\textbf{Conflict of Interest}\quad No conflicts of interest to declare.
+
+\noindent\textbf{Ethical Approval}\quad This manuscript does not involve human subjects
+research or identifiable patient data. Institutional review board approval was not required.
+
+\noindent\textbf{Data Availability}\quad No empirical datasets were generated or analyzed
+in this study.
+
+\noindent\textbf{AI Use Disclosure}\quad The author used AI-based language assistance tools
+for drafting support and structural refinement. All conceptual development, modeling, and
+final content decisions were made by the author.
+
+\section*{References}
+
+\begin{description}[leftmargin=1cm, labelindent=0cm, itemsep=4pt]
+
+\item Ames, A.\,D., Coogan, S., Egerstedt, M., Notomista, G., Sreenath, K., \& Tabuada, P.
+(2017). Control barrier functions: Theory and applications.
+\textit{European Control Conference (ECC)}, 3420--3431.
+
+\item Basir, O. (2026). AI social responsibility as reachability: Execution-level semantics
+for the social responsibility stack. \textit{arXiv:2601.02585}.
+
+\item Food and Drug Administration. (2021a). \textit{Artificial intelligence/machine
+learning-based software as a medical device action plan.}
+U.S. Department of Health and Human Services.
+
+\item Food and Drug Administration. (2021b). \textit{Good machine learning practice for
+medical device development: Guiding principles.}
+U.S. Department of Health and Human Services.
+
+\item Santoni de Sio, F., \& van den Hoven, J. (2018). Meaningful human control over
+autonomous systems: A philosophical account.
+\textit{Frontiers in Robotics and AI, 5}, 15.
+
+\item Sendak, M., Elish, M.\,C., Gao, M., Futoma, J., Ratliff, W., Nichols, M.,
+Bedoya, A., Balu, S., \& O'Brien, C. (2020).
+``The human body is a black box'': Supporting clinical decision-making with deep learning.
+\textit{Proceedings of the ACM Conference on Fairness, Accountability, and Transparency},
+99--109.
+
+\end{description}
+
+\end{document}
